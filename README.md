@@ -1,4 +1,6 @@
-# Exo Stage
+=======
+# Stage exo
+>>>>>>> 83d02586df0185cff025678c264c6cd6abdfcdf1
 
 ## Project setup
 ```
