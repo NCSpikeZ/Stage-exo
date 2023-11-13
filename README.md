@@ -1,4 +1,4 @@
-# nom-du-projet
+# Stage exo
 
 ## Project setup
 ```
