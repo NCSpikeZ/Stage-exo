@@ -22,3 +22,4 @@ div(class="flex items-center bg-white min-h-20vh w-1/2 mt-5 h-10 p-5" :class="{ 
   };
   </script>
   
+  .ml-auto.flex.text-white
