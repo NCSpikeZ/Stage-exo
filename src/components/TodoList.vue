@@ -30,9 +30,9 @@ export default {
       filter: "all",
     };
   },
-  created() {
-    this.todos = localStorageService.get("todos") || [];
-  },
+    created() {
+      this.todos = localStorageService.get("todos") || [];
+    },
   methods: {
     addTodo(newTodo) {
       this.todos.unshift(newTodo);
