@@ -1,24 +1,17 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import {createRouter, createWebHashHistory} from 'vue-router';
 import TodoList from '../components/TodoList';
-import TodoDetail from '../components/TodoDetails.vue';
-
-Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
+    name: 'list',
     component: TodoList,
-  },
-  {
-    path: '/todo/:id',
-    name: 'todo-detail',
-    component: TodoDetail,
   },
 ];
 
-const router = new VueRouter({
-  routes,
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes, 
 });
 
 export default router;
