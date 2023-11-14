@@ -13,21 +13,21 @@
   </div>
 </template>
   
-  <script>
-  export default {
-    props: {
-      todo: Object,
+<script>
+export default {
+  props: {
+    todo: Object,
+  },
+  methods: {
+    toggleCompletion() {
+      this.$emit('toggleCompletion', this.todo.id);
     },
-    methods: {
-      toggleCompletion() {
-        this.$emit("toggleCompletion", this.todo.id);
-      },
-      deleteTask() {
-        this.$emit("deleteTask", this.todo.id);
-      },
-      editTask() {
-        this.$emit("editTask", this.todo.id);
-      }
+    deleteTask() {
+      this.$emit('deleteTask', this.todo.id);
     },
-  };
-  </script>
+    editTask() {
+      this.$emit('editTask', this.todo.id);
+    },
+  },
+};
+</script>

@@ -9,12 +9,14 @@
       <button @click="filterTasks('not-completed')" :class="{ 'bg-red-500 p-2': filter === 'not-completed' }">Non terminées</button>
     </div>
     <TodoItem
-      v-for="todo in filteredTasks"
-      :key="todo.id"
-      :todo="todo"
-      @toggleCompletion="toggleCompletion"
-      @deleteTask="deleteTask"
-    />
+    v-for="todo in filteredTasks"
+    :key="todo.id"
+    :todo="todo"
+    :getById="getById"
+    @toggleCompletion="toggleCompletion"
+    @deleteTask="deleteTask"
+/>
+
   </div>
 </template>
 
@@ -53,6 +55,12 @@ export default {
     },
     filterTasks(filter) {
       this.filter = filter;
+    },
+    loadTodos() {
+      this.todos = localStorageService.get("todos") || [];
+    },
+    getById(taskId) {
+      return this.todos.find(task => task.id === taskId);
     },
   },
   computed: {
