@@ -4,15 +4,12 @@
     <div :class="{ 'line-through': todo.completed }">{{ todo.text }}</div>
     </router-link>
     <div class="ml-auto flex text-white">
-      <button @click="toggleCompletion" class="mr-2 bg-green-500 p-2">
-        {{ todo.completed ? 'Non terminé' : 'Terminé' }}
-      </button>
+      <button @click="toggleCompletion" class="mr-2 bg-green-500 p-2">{{ todo.completed ? 'Non terminé' : 'Terminé' }}</button>
       <button @click="deleteTask" class="bg-red-500 p-2">Supprimer</button>
-      <button @click="editTask" class="ml-2 bg-blue-500 p-2">Éditer</button>
     </div>
   </div>
 </template>
-  
+    
 <script>
 export default {
   props: {

@@ -1,6 +1,7 @@
 <template>
   <div class="flex items-center justify-center flex-col">
     <h1 class="text-5xl font-bold text-white mt-40">To do List</h1>
+    <p>Cliquer sur une tâche pour l'éditer</p>
 
     <TodoForm @addTodo="addTodo" />
     <div class="mt-4 space-x-4">
@@ -14,10 +15,8 @@
     :todo="todo"
     :getById="getById"
     @toggleCompletion="toggleCompletion"
-    @deleteTask="deleteTask"
-/>
-
-  </div>
+    @deleteTask="deleteTask"/>
+</div>
 </template>
 
 <script>
