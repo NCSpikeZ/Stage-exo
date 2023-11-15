@@ -1,27 +1,18 @@
-<template>
-  <div class="flex items-center justify-center flex-col">
-    <h1 class="text-5xl font-bold text-white mt-40">To do List</h1>
-    <p>Cliquer sur une tâche pour l'éditer</p>
-
-    <TodoForm @addTodo="addTodo" />
-    <div class="mt-4 space-x-4">
-      <button @click="filterTasks('all')" :class="{ 'bg-blue-500 p-2': filter === 'all' }">Toutes</button>
-      <button @click="filterTasks('completed')" :class="{ 'bg-green-500 p-2': filter === 'completed' }">Terminées</button>
-      <button @click="filterTasks('not-completed')" :class="{ 'bg-red-500 p-2': filter === 'not-completed' }">Non terminées</button>
-    </div>
-    <TodoItem
-    v-for="todo in filteredTasks"
-    :key="todo.id"
-    :todo="todo"
-    :getById="getById"
-    @toggleCompletion="toggleCompletion"
-    @deleteTask="deleteTask"/>
-</div>
+<template lang="pug">
+.flex.items-center.justify-center.flex-col
+  h1.text-5xl.font-bold.text-white.mt-40 To do List
+  p Cliquer sur une tâche pour l'éditer
+  TodoForm(@addTodo="addTodo")
+  .mt-4.space-x-4
+    button(@click="filterTasks('all')", :class="{ 'bg-blue-500 p-2': filter === 'all' }") Toutes
+    button(@click="filterTasks('completed')", :class="{ 'bg-green-500 p-2': filter === 'completed' }") Terminées
+    button(@click="filterTasks('not-completed')", :class="{ 'bg-red-500 p-2': filter === 'not-completed' }") Non terminées
+  TodoItem(v-for="todo in filteredTasks", :key="todo.id", :todo="todo", :getById="getById", @toggleCompletion="toggleCompletion", @deleteTask="deleteTask")
 </template>
 
 <script>
-import TodoItem from "./TodoItem.vue";
-import TodoForm from "./TodoForm.vue";
+import TodoItem from "@/components/TodoItem.vue";
+import TodoForm from "@/components/TodoForm.vue";
 import localStorageService from "../../localStorageService.js";
 
 export default {
@@ -31,7 +22,7 @@ export default {
       filter: "all",
     };
   },
-    created() {
+    mounted() {
       this.todos = localStorageService.get("todos") || [];
     },
   methods: {

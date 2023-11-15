@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import './assets/css/tailwind.css'
 import router from "./router";
 import App from "./App.vue";
+
 console.log(router);
 
 
